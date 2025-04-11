@@ -14,21 +14,20 @@ This repository contains the React-based frontend for the PartSelect Chat Agent,
 ## Tech Stack
 
 * **Framework:** React
-* **Language:** JavaScript (or TypeScript, specify if used)
-* **Styling:** CSS / Tailwind CSS (specify if used)
-* **API Communication:** Browser `fetch` API or Axios
+* **Language:** JavaScript 
+* **Styling:** CSS 
 * **Streaming:** Native `EventSource` API for handling Server-Sent Events (SSE)
 
 ## Prerequisites
 
 * Node.js (LTS version recommended)
-* npm or yarn package manager
+* npm package manager
 
 ## Setup & Installation
 
 1.  **Clone the repository:**
     ```bash
-    git clone <your-repo-url>
+    git clone PartSelectAI
     cd partselect-chat-frontend # Or your frontend directory name
     ```
 
@@ -37,19 +36,11 @@ This repository contains the React-based frontend for the PartSelect Chat Agent,
     # Using npm
     npm install
 
-    # Or using yarn
-    # yarn install
     ```
 
-3.  **Configure Backend URL (If Necessary):**
+3.  **Configure Backend URL (Necessary):**
     * The application needs to know the URL of the running backend API. By default, it might assume `http://localhost:8000`.
-    * Check if there's a `.env` file or configuration setting (e.g., in `src/config.js` or similar) for `REACT_APP_API_URL`.
-    * If needed, create a `.env` file in the project root (`partselect-chat-frontend/`) and set the variable:
-        ```dotenv
-        # .env
-        REACT_APP_API_URL=http://localhost:8000
-        ```
-    * *(Adjust the URL if your backend runs on a different host or port).*
+
 
 ## Running the Application
 
@@ -57,9 +48,6 @@ This repository contains the React-based frontend for the PartSelect Chat Agent,
     ```bash
     # Using npm
     npm start
-
-    # Or using yarn
-    # yarn start
     ```
 
 2.  **Access the application:**
@@ -72,15 +60,10 @@ This repository contains the React-based frontend for the PartSelect Chat Agent,
 * `src/App.js`: Main application component, likely manages overall state and layout.
 * `src/components/ChatWindow.js`: Component displaying the conversation history.
 * `src/components/MessageInput.js`: Component for the user text input and send button.
-* `src/services/api.js` (or similar): Module handling communication with the backend API, including the EventSource connection for streaming.
+* `src/services/api.js` : Module handling communication with the backend API, including the EventSource connection for streaming.
 
 ## Limitations & Future Work
 
 * **Frontend Only:** This application relies entirely on the backend service for its logic and responses.
 * **Basic UI:** The current UI provides core functionality but could be enhanced.
-* **Future Improvements:**
-    * More sophisticated loading states and error handling displays.
-    * Enhanced UI/UX elements (e.g., clickable links in messages, better product display).
-    * Improved accessibility features.
-    * End-to-end testing.
 

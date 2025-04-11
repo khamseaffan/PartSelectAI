@@ -31,17 +31,18 @@ This repository contains the backend service for the PartSelect Chat Agent, deve
 
 * Docker & Docker Compose installed.
 * Access to a Redis instance (local or remote).
+
 * API Keys:
     * Deepseek API Key
-    * Google Search API Key
-    * Google Programmable Search Engine ID (CSE ID) configured to search `partselect.com`.
-
+    * Google API Key (for Custom Search API)
+    * Google CSE ID (Programmable Search Engine ID configured for `partselect.com`)
+* reference: https://python.langchain.com/docs/integrations/providers/google/#google-search
 ## Setup & Installation
 
 1.  **Clone the repository:**
     ```bash
-    git clone <your-repo-url>
-    cd partselect_ai_backend # Or your backend directory name
+    git clone https://github.com/khamseaffan/PartSelectAI.git
+    cd PartSelectAI/partselect_ai_frontend
     ```
 
 2.  **Create Environment File:**

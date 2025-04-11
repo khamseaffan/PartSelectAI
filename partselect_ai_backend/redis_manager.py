@@ -84,6 +84,7 @@ class RedisManager:
     @check_connection
     def add_to_cart(self, session_id: str, part_number: str, quantity: int, name: str) -> bool:
         """Adds or updates an item in the cart hash. Stores quantity and name as JSON."""
+        print(f"[RedisManager] Adding/updating item in cart: {part_number} (session: {session_id})")
         key = f"cart:{session_id}"
         item_data = {"quantity": quantity, "name": name}
         item_data_json = json.dumps(item_data)
