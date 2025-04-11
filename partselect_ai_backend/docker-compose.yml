@@ -1,0 +1,24 @@
+
+services:
+  backend:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - REDIS_URL=redis://redis:6379/0
+      - REDIS_CACHE_TTL=3600 
+    depends_on:
+      - redis
+    command: uv run uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+      
+
+  redis:
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: redis-server --save 60 1 --loglevel warning
+
+volumes:
+  redis_data:

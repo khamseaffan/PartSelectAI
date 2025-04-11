@@ -1,70 +1,86 @@
-# Getting Started with Create React App
+# PartSelect Chat Agent - Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This repository contains the React-based frontend for the PartSelect Chat Agent, developed as part of the Instalily SWE Case Study. It provides a user interface for interacting with the backend chat agent via a streaming API.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+* **Chat Interface:** Clean and intuitive interface for sending messages and viewing conversation history.
+* **Real-time Streaming:** Connects to the backend's Server-Sent Events (SSE) endpoint to display agent responses token-by-token as they are generated.
+* **User/Agent Message Display:** Clearly distinguishes between messages sent by the user and responses received from the agent.
+* **Session Management:** Handles passing a unique session ID to the backend to maintain conversation context and cart state.
+* **Branding:** Basic styling applied to align with PartSelect's visual identity (colors, layout).
+* **Suggestion Chips:** Includes suggestion chips for common user actions.
 
-### `npm start`
+## Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* **Framework:** React
+* **Language:** JavaScript (or TypeScript, specify if used)
+* **Styling:** CSS / Tailwind CSS (specify if used)
+* **API Communication:** Browser `fetch` API or Axios
+* **Streaming:** Native `EventSource` API for handling Server-Sent Events (SSE)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Prerequisites
 
-### `npm test`
+* Node.js (LTS version recommended)
+* npm or yarn package manager
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Setup & Installation
 
-### `npm run build`
+1.  **Clone the repository:**
+    ```bash
+    git clone <your-repo-url>
+    cd partselect-chat-frontend # Or your frontend directory name
+    ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2.  **Install Dependencies:**
+    ```bash
+    # Using npm
+    npm install
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    # Or using yarn
+    # yarn install
+    ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3.  **Configure Backend URL (If Necessary):**
+    * The application needs to know the URL of the running backend API. By default, it might assume `http://localhost:8000`.
+    * Check if there's a `.env` file or configuration setting (e.g., in `src/config.js` or similar) for `REACT_APP_API_URL`.
+    * If needed, create a `.env` file in the project root (`partselect-chat-frontend/`) and set the variable:
+        ```dotenv
+        # .env
+        REACT_APP_API_URL=http://localhost:8000
+        ```
+    * *(Adjust the URL if your backend runs on a different host or port).*
 
-### `npm run eject`
+## Running the Application
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1.  **Start the development server:**
+    ```bash
+    # Using npm
+    npm start
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    # Or using yarn
+    # yarn start
+    ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+2.  **Access the application:**
+    Open your web browser and navigate to `http://localhost:3000` (or the port specified by the start command).
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+3.  **Interact:** Start typing messages in the chat input to interact with the backend agent. Ensure the backend service is running.
 
-## Learn More
+## Key Components (Illustrative)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+* `src/App.js`: Main application component, likely manages overall state and layout.
+* `src/components/ChatWindow.js`: Component displaying the conversation history.
+* `src/components/MessageInput.js`: Component for the user text input and send button.
+* `src/services/api.js` (or similar): Module handling communication with the backend API, including the EventSource connection for streaming.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Limitations & Future Work
 
-### Code Splitting
+* **Frontend Only:** This application relies entirely on the backend service for its logic and responses.
+* **Basic UI:** The current UI provides core functionality but could be enhanced.
+* **Future Improvements:**
+    * More sophisticated loading states and error handling displays.
+    * Enhanced UI/UX elements (e.g., clickable links in messages, better product display).
+    * Improved accessibility features.
+    * End-to-end testing.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
